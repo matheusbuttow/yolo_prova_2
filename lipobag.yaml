@@ -1,0 +1,21 @@
+# Dataset da lipobag no formato YOLO OBB (imagens reais + simulador).
+# Sem a chave "path": os caminhos abaixo são relativos à pasta deste arquivo.
+#
+# dataset/
+#   real/images/train/*.jpg    real/labels/train/*.txt
+#   real/images/val/*.jpg      real/labels/val/*.txt
+#   sim/images/train/*.png     sim/labels/train/*.txt
+#
+# Cada linha de um .txt (coordenadas normalizadas de 0 a 1):
+#   0 x1 y1 x2 y2 x3 y3 x4 y4
+# Imagem sem lipobag (fundo): .txt vazio ou sem .txt.
+
+train:
+  - dataset/real/images/train
+  - dataset/sim/images/train
+
+# Validação só com imagens reais: é o que o modelo vai ver na prova.
+val: dataset/real/images/val
+
+names:
+  0: lipobag
